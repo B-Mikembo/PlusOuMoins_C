@@ -7,12 +7,13 @@
 int main(int argv, char* argc[]){
 
 	int game = 1;
+	int continuerPartie = 1;
 
-	while(game){
+	while(continuerPartie){
 		srand(time(NULL));
 		int nbreMystere = (rand() % (MAX - MIN + 1)) + MIN;
 
-		int nbre;
+		int nbre, compteur;
 
 		while(nbre != nbreMystere){
 			printf("Quel est le nombre ? ");
@@ -21,11 +22,14 @@ int main(int argv, char* argc[]){
 				printf("C'est plus !\n");
 			else if(nbre > nbreMystere)
 				printf("C'est moins !\n");
+			compteur++;
 		}
 
-		printf("Bravo, vous avez trouvé le nombre mystère !!!\n");
+		printf("Bravo, vous avez trouvé le nombre mystère en %d coups !!!\n", compteur);
 		printf("Voulez-vous continuer ? (1/0)");
-		scanf("%d", &game);
+		char choix = 'O';
+		scanf("%d", &choix);
+
 	}	
 
 	return 0;
